@@ -1,9 +1,10 @@
 import { checklistMiddleware } from "./checklist/checklist.middleware";
 import { createStore, compose, applyMiddleware } from "redux";
 import { rootReducer } from "./rootReducer";
+import { chartMiddleware } from "./chart/chart.middleware";
 
 const featureMiddlewares = [
-    checklistMiddleware
+    checklistMiddleware, chartMiddleware
 ]
 
 // development

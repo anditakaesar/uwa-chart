@@ -7,23 +7,17 @@ import {
   Route,
   Link
 } from 'react-router-dom';
-import ChecklistDemo from './checklist/ChecklistDemo';
+import ChartDemo from './chart/ChartDemo';
 
 class App extends React.Component {
   render() {
     return (
       <Router>
-        <nav className="uk-navbar-container" uk-navbar>
+        <nav className="uk-navbar-container" uk-navbar="true">
           <div className="uk-navbar-left">
             <ul className="uk-navbar-nav">
               <li>
-                <Link to="/pageone">Page One</Link>
-              </li>
-              <li>
-                <Link to="/pagetwo">Page Two</Link>
-              </li>
-              <li>
-                <Link to="/checklist">Checklist Demo</Link>
+                <Link to="/chartdemo">Chart Demo</Link>
               </li>
             </ul>
           </div>
@@ -31,34 +25,15 @@ class App extends React.Component {
 
         <main>
           <Switch>
-            <Route path="/pageone">
-              <PageOne />
-            </Route>
-            <Route path="/pagetwo">
-              <PageTwo />
+            <Route path="/chartdemo">
+              <ChartDemo />
             </Route>
             <Route>
-              <ChecklistDemo />
+              <ChartDemo />
             </Route>
           </Switch>
         </main>
       </Router>
-    )
-  }
-}
-
-class PageOne extends React.Component {
-  render() {
-    return (
-      <h1>A PageOne</h1>
-    )
-  }
-}
-
-class PageTwo extends React.Component {
-  render() {
-    return (
-      <h1>A PageTwo</h1>
     )
   }
 }
