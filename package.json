@@ -1,0 +1,9 @@
+{
+  "name": "uwa-chart",
+  "version": "1.0.0",
+  "description": "A charting experience",
+  "main": "index.js",
+  "repository": "https://github.com/anditakaesar/uwa-chart.git",
+  "author": "Andita Kaesar <anditakaesar@gmail.com>",
+  "license": "MIT"
+}
