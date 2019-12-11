@@ -8,6 +8,9 @@ class ChartDemo extends React.Component {
         return (
             <div className="uk-container">
                 <h2>Line Data</h2>
+                <span>{this.props.notifications[0]}</span>
+                <button className="uk-button uk-button-default"
+                onClick={() => this.props.fetchChart()}>Try Fetch</button>
                 <Line data={this.props.charts} />
             </div>
         )
@@ -16,7 +19,8 @@ class ChartDemo extends React.Component {
 
 function mapStateToProps(state) {
     return {
-      charts: state.charts
+      charts: state.charts,
+      notifications: state.notifications
     };
   }
   

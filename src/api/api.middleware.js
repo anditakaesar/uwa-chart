@@ -1,3 +1,5 @@
+import { API_REQUEST, apiError, apiSuccess } from './api.action';
+import Axios from 'axios';
 
 export const apiMiddleware = ({ dispatch }) => (next) => (action) => {
     next(action);
@@ -21,6 +23,21 @@ export const apiMiddleware = ({ dispatch }) => (next) => (action) => {
             
         }
     }
+};
+
+const axiosPost = ({dispatch, body, url, config, feature}) => {
+    Axios.post(url, body, config)
+        .then(response => {
+            dispatch(apiSuccess({response: response.data, feature: feature}));
+        })
+        .catch(error => {
+            let message = error.message;
+            if (error.response !== undefined) {
+                message = error.response.data.message;
+            }
+
+            dispatch(apiError({error: message, feature: feature}));
+        });
 };
 
 const axiosGet = ({dispatch, body, url, config, feature}) => {
