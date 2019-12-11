@@ -43,6 +43,18 @@ export const initialState = {
         pointHitRadius: 10,
         data: [65, 59, 80, 81, 56, 55, 40, 45]
       }
-    ]
+    ],
+    options: {
+      scales: {
+        xAxes: [
+          {
+            ticks: {
+              autoSkip: true,
+              maxTicksLimit: 20
+            }
+          }
+        ]
+      }
+    }
   }
 }

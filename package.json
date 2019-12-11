@@ -5,6 +5,9 @@
   "dependencies": {
     "axios": "^0.19.0",
     "chart.js": "^2.9.3",
+    "d3": "^5.14.2",
+    "d3fc": "^14.0.60",
+    "d3fc-random-data": "^2.0.1",
     "react": "^16.12.0",
     "react-chartjs-2": "^2.8.0",
     "react-dom": "^16.12.0",
@@ -24,7 +27,10 @@
   "eslintConfig": {
     "extends": "react-app",
     "rules": {
-      "indent": ["error", 2]
+      "indent": [
+        "error",
+        2
+      ]
     }
   },
   "browserslist": {

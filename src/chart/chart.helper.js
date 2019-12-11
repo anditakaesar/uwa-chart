@@ -41,6 +41,9 @@ export function populateData(rawdata) {
     data = [...data, closePrice];
   }
 
+  labels = labels.reverse();
+  data = data.reverse();
+
   return {
     labels, data, symbol
   }

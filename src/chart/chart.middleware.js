@@ -1,4 +1,4 @@
-import { FETCH_CHART, CHART, updateChart } from "./chart.action";
+import { FETCH_CHART, CHART, updateChart, FETCH_CHART_SYMBOL } from "./chart.action";
 import { apiRequest, API_SUCCESS, API_ERROR } from '../api/api.action';
 import { setNotification } from "../notification/notification.action";
 import { ENV } from "../env";
@@ -20,6 +20,19 @@ export const chartMiddleware = () => (next) => (action) => {
       feature: CHART
     }));
     next(setNotification({message: 'fetching data chart', feature: CHART}))
+    break;
+
+  case FETCH_CHART_SYMBOL:
+    next(apiRequest({
+      body: {},
+      method: 'GET',
+      url: `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${action.payload}&apikey=${ENV.API_KEY}`,
+      config: {
+        headers: {'Content-Type': 'application/json'}
+      },
+      feature: CHART
+    }));
+    next(setNotification({message: `fetching ${action.payload} symbol`, feature: CHART}))
     break;
         
   case `${CHART} ${API_SUCCESS}`:
