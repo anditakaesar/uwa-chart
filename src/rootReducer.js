@@ -4,7 +4,7 @@ import { chartReducer } from './chart/chart.reducers';
 import { notificationReducer } from './notification/notification.reducer';
 
 export const rootReducer = combineReducers({
-    checklists: checklistReducer,
-    charts: chartReducer,
-    notifications: notificationReducer
+  checklists: checklistReducer,
+  charts: chartReducer,
+  notifications: notificationReducer
 });

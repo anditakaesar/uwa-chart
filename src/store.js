@@ -5,20 +5,20 @@ import { chartMiddleware } from "./chart/chart.middleware";
 import { apiMiddleware } from "./api/api.middleware";
 
 const featureMiddlewares = [
-    checklistMiddleware, chartMiddleware
+  checklistMiddleware, chartMiddleware
 ]
 
 // core middleware
 const coreMiddleware = [
-    apiMiddleware
+  apiMiddleware
 ]
 
 // development
 const storeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 export let store = createStore(
-    rootReducer,
-    storeEnhancers(
-        applyMiddleware(...featureMiddlewares, ...coreMiddleware)
-    )
+  rootReducer,
+  storeEnhancers(
+    applyMiddleware(...featureMiddlewares, ...coreMiddleware)
+  )
 );

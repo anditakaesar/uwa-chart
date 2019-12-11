@@ -7,10 +7,10 @@ import * as serviceWorker from './serviceWorker';
 
 const rootEl = document.getElementById('root');
 ReactDOM.render(
-    <Provider store={store}>
-        <App />
-    </Provider>, 
-    rootEl
+  <Provider store={store}>
+    <App />
+  </Provider>, 
+  rootEl
 );
 
 // If you want your app to work offline and load faster, you can change
