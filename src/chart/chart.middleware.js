@@ -2,7 +2,7 @@ import { FETCH_CHART, CHART, updateChart, FETCH_CHART_SYMBOL } from "./chart.act
 import { apiRequest, API_SUCCESS, API_ERROR } from '../api/api.action';
 import { setNotification } from "../notification/notification.action";
 import { ENV } from "../env";
-import { populateData } from "./chart.helper";
+import { populateData2 } from "./chart.helper";
 
 export const chartMiddleware = () => (next) => (action) => {
   next(action);
@@ -37,7 +37,8 @@ export const chartMiddleware = () => (next) => (action) => {
         
   case `${CHART} ${API_SUCCESS}`:
     // console.log(action.payload);
-    let outputData = populateData(action.payload);
+    let outputData = populateData2(action.payload);
+    // console.log(outputData);
     next(updateChart({payload: outputData}));
     next(setNotification({ message: 'fetching data done', feature: CHART }));
     break;

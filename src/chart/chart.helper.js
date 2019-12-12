@@ -49,6 +49,33 @@ export function populateData(rawdata) {
   }
 }
 
+export function populateData2(rawdata) {
+  let timeseries = rawdata[TIME_SERIES_DAILY];
+    
+  let symbol = rawdata[META_DATA][META_INFO.SYMBOL];
+  let prices = []; // date, OHLC, volume
+  let meta = {
+    symbol
+  };
+    
+  // console.log(rawdata[TIME_SERIES_DAILY]);
+
+  for (var prop in timeseries) {
+    prices.push({
+      date: new Date(prop),
+      open: parseInt(timeseries[prop][PRICE.OPEN]),
+      high: parseInt(timeseries[prop][PRICE.HIGH]),
+      low: parseInt(timeseries[prop][PRICE.LOW]),
+      close: parseInt(timeseries[prop][PRICE.CLOSE]),
+      volume: parseInt(timeseries[prop][PRICE.VOLUME])
+    });
+  }
+
+  return {
+    prices, meta
+  }
+}
+
 
 // export const populateData = ({rawdata}) => ({
 //     // let outputData = {

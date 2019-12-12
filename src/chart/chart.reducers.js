@@ -1,7 +1,7 @@
 import { initialState } from '../initialState';
 import { FETCH_CHART, UPDATE_CHART } from './chart.action';
 
-export const chartReducer = (mychart = initialState.mychart, action) => {
+export const chartReducer = (mychart = initialState.chart, action) => {
   let newChart;
 
   switch (action.type) {
@@ -9,11 +9,10 @@ export const chartReducer = (mychart = initialState.mychart, action) => {
     return mychart;
 
   case UPDATE_CHART:
+    const { prices, meta } = action.payload;
     newChart = {...mychart};
-    newChart.labels = action.payload.labels;
-    let dataset = newChart.datasets[0];
-    dataset.data = action.payload.data;
-    dataset.label = action.payload.symbol;
+    newChart.meta.symbol = meta.symbol;
+    newChart.prices = prices;
     return newChart;
 
   default:
